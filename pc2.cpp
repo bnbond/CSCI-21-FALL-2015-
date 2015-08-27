@@ -1,5 +1,7 @@
 /*
  * Programming Challenge 2
+ * Name: Brett Bond
+ * Date: 8/27/15
  */
 #include <cassert>
 #include <cmath>
@@ -33,6 +35,12 @@ int main (int argc, char* argv[]) {
  */
 bool isFactor (int numerator, int denominator) {
 	// CODE HERE
+	if (numerator % denominator == 0){
+		return true;
+	}
+	else {
+		return false;
+	}
 }
 
 /*
@@ -50,6 +58,13 @@ bool isFactor (int numerator, int denominator) {
  */
 void makeChange (int initialValue, int& quarters, int& dimes, int& nickels, int& pennies) {
 	// CODE HERE
+	quarters = initialValue / 25;
+	initialValue = initialValue - (quarters * 25);
+	dimes = initialValue / 10;
+	initialValue = initialValue - (dimes * 10);
+	nickels = initialValue / 5;
+	initialValue = initialValue - (nickels * 5);
+	pennies = initialValue / 1;
 }
 
 /*
@@ -67,10 +82,16 @@ double launchHumanCannonball (double initialVelocity, double launchAngle) {
 	// CODE HERE
 	//
 	// 1 convert launchAngle from degrees to radians [radangle = launchAngle * (PI/180)]
+	double radangle = launchAngle * (M_PI/180);
 	// 2 compute final horizontal/x velocity [xveloc = initialVelocity * cos(radangle)]
+	double xveloc = initialVelocity * cos(radangle);
 	// 3 compute final vertical/y velocity [yveloc = initialVecity * sin(radangle) * -1]
+	double yveloc = initialVelocity * sin(radangle) * -1;
 	// 4 compute time of flight [flighttime = (yveloc) * 2 / -9.8]
+	double flighttime = (yveloc) * 2 / -9.8;
 	// 5 compute horizontal/x distance traveled [xdistance = xveloc * flighttime]
+	double xdistance = xveloc * flighttime;
+	return xdistance;
 }
 
 /*
